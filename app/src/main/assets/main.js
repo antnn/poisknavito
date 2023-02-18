@@ -1,9 +1,3 @@
-package poisk.na.avito
-
-class JSCODE {
-    companion object {
-        const val code: String = """
-javascript:
 (async function () {
         function getElementByXpath(path) {
                 return document.evaluate(path, document,
@@ -16,10 +10,11 @@ javascript:
                 return new Promise(resolve => setTimeout(resolve, ms));
         }
 
-        var loop_ = true;
-        var waitAmount = 1000;
+
 
         async function LogIn() {
+                var loop_ = true;
+                var waitAmount = 1000;
                 var login_btn_clicked = () => {
                         return window.localStorage.getItem("login_btn_clicked");
                 };
@@ -53,6 +48,4 @@ javascript:
                 }
         }
         await LogIn();
-})()"""
-    }
-}
+})()

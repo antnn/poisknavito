@@ -10,9 +10,13 @@ import kotlinx.coroutines.delay
 import kotlin.random.Random
 
 
-class CustomWebView(context: Context): WebView(context) {
-    private var inputConnection: InputConnection? = null
+class CustomWebView: WebView {
+    constructor(context: Context): super(context)
+    constructor(context: Context, attrs: AttributeSet) : super(context, attrs)
+    constructor(context: Context, attrs: AttributeSet, defStyle: Int) : super(context, attrs, defStyle)
 
+    private var inputConnection: InputConnection? = null
+    public var jsCode: String=""
     override fun onCreateInputConnection(outAttrs: EditorInfo?): InputConnection? {
         val newInputConnection = super.onCreateInputConnection(outAttrs) ?: return inputConnection
         inputConnection = newInputConnection
